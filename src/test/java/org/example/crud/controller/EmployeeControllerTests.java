@@ -23,7 +23,7 @@ public class EmployeeControllerTests {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Test
-    void getAllDepartments() {
+    void getAllEmployees() {
         try {
             var response = restTemplate.getForEntity("/api/employees", String.class);
             assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -37,7 +37,7 @@ public class EmployeeControllerTests {
     }
 
     @Test
-    void getDepartmentById() {
+    void getEmployeeById() {
         try {
             var response = restTemplate.getForEntity("/api/employees/1", String.class);
             assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -48,5 +48,11 @@ public class EmployeeControllerTests {
         } catch (JsonProcessingException e) {
             fail("JSON processing error: " + e.getMessage());
         }
+    }
+
+    @Test
+    void getEmployeeById_NOT_FOUND() {
+        var response = restTemplate.getForEntity("/api/employees/999", String.class);
+        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
     }
 }

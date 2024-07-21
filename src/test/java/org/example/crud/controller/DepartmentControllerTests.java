@@ -49,4 +49,10 @@ public class DepartmentControllerTests {
             fail("JSON processing error: " + e.getMessage());
         }
     }
+
+    @Test
+    void getDepartmentById_NOT_FOUND() {
+        var response = restTemplate.getForEntity("/api/departments/999", String.class);
+        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+    }
 }

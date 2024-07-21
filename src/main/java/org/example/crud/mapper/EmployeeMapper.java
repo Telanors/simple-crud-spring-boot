@@ -9,12 +9,6 @@ import org.mapstruct.MappingConstants;
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface EmployeeMapper extends BaseMapper<Employee, EmployeeDTO> {
     @Override
-    @Mapping(source = "id", target = "id")
-    @Mapping(source = "address", target = "address")
-    @Mapping(source = "firstname", target = "firstname")
-    @Mapping(source = "lastname", target = "lastname")
-    @Mapping(source = "salary", target = "salary")
-    @Mapping(source = "department", target = "department")
     EmployeeDTO toDTO(Employee entity);
 
     @Override

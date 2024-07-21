@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class DepartmentDTO implements BaseDTO<Integer> {
+public class DepartmentDTO {
     private Integer id;
     private String name;
 }
